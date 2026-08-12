@@ -1,0 +1,15 @@
+general:
+  seed: 42
+  target_column: "has_defect"
+
+extraction:
+  lookback_days: 90
+  ccn_threshold: 10
+
+model:
+  type: "xgboost"
+  params:
+    max_depth: 6
+    learning_rate: 0.05
+    n_estimators: 200
+    scale_pos_weight: 5.0

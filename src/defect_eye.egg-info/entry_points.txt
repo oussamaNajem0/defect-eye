@@ -1,0 +1,2 @@
+[console_scripts]
+defect-eye = defect_eye.cli:app
