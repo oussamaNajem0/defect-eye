@@ -9,6 +9,10 @@ src/defect_eye.egg-info/entry_points.txt
 src/defect_eye.egg-info/requires.txt
 src/defect_eye.egg-info/top_level.txt
 src/defect_eye/data/__init__.py
+src/defect_eye/data/preprocessor.py
 src/defect_eye/extractor/__init__.py
+src/defect_eye/extractor/git_miner.py
 src/defect_eye/models/__init__.py
+tests/test_git_miner.py
+tests/test_preprocessor.py
 tests/test_samity.py
