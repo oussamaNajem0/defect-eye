@@ -42,7 +42,7 @@ where = ["src"]
 line-length = 88
 target-version = ["py310"]
 
-[tool.ruff]
+[tool.ruff.lint]
 line-length = 88
 target-version = "py310"
 select = ["E", "F", "W", "I", "B"]

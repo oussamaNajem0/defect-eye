@@ -1,6 +1,8 @@
 import subprocess
 from pathlib import Path
+
 import pytest
+
 from defect_eye.extractor.git_miner import analyze_file_churn, churn_metrics_to_dict
 
 
@@ -13,18 +15,24 @@ def dummy_git_repo(tmp_path: Path) -> Path:
     # Initialize git repository
     subprocess.run(["git", "init"], cwd=repo_dir, check=True)
     subprocess.run(["git", "config", "user.name", "Tester"], cwd=repo_dir, check=True)
-    subprocess.run(["git", "config", "user.email", "test@example.com"], cwd=repo_dir, check=True)
+    subprocess.run(
+        ["git", "config", "user.email", "test@example.com"], cwd=repo_dir, check=True
+    )
 
     # Initial Commit
     file1 = repo_dir / "app.py"
     file1.write_text("print('hello world')\n")
     subprocess.run(["git", "add", "app.py"], cwd=repo_dir, check=True)
-    subprocess.run(["git", "commit", "-m", "feat: initial commit"], cwd=repo_dir, check=True)
+    subprocess.run(
+        ["git", "commit", "-m", "feat: initial commit"], cwd=repo_dir, check=True
+    )
 
     # Second Commit (Bug fix)
     file1.write_text("print('hello world')\nprint('bug fix applied')\n")
     subprocess.run(["git", "add", "app.py"], cwd=repo_dir, check=True)
-    subprocess.run(["git", "commit", "-m", "fix: resolve bug in app.py"], cwd=repo_dir, check=True)
+    subprocess.run(
+        ["git", "commit", "-m", "fix: resolve bug in app.py"], cwd=repo_dir, check=True
+    )
 
     return repo_dir
 
